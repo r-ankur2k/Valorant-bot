@@ -1,0 +1,217 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Valorant Corrode Agent Strategies</title>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #0f1923;
+      color: #ffffff;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #ff4655;
+      padding: 1rem;
+      text-align: center;
+      font-size: 2rem;
+      font-weight: bold;
+    }
+    .container {
+      padding: 2rem;
+    }
+    select, option {
+      background-color: #1f2a36;
+      color: #ffffff;
+      padding: 0.5rem;
+      border: none;
+      margin-bottom: 2rem;
+      font-size: 1rem;
+    }
+    .agent-info {
+      background-color: #1f2a36;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      border-radius: 8px;
+    }
+    h2 {
+      color: #ff4655;
+    }
+    .footer {
+      background-color: #1f2a36;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <header>Valorant Corrode Agent Strategies</header>
+  <div class="container">
+    <label for="agent-select">Select an Agent:</label>
+    <select id="agent-select">
+      <option value="select">Select</option>
+      <option value="jett">Jett</option>
+      <option value="sage">Sage</option>
+      <option value="brimstone">Brimstone</option>
+      <option value="killjoy">Killjoy</option>
+      <option value="omen">Omen</option>
+      <option value="viper">Viper</option>
+      <option value="sova">Sova</option>
+      <option value="skye">Skye</option>
+      <option value="fade">Fade</option>
+      <option value="yoru">Yoru</option>
+      <option value="breach">Breach</option>
+    </select>
+    <div id="agent-details" class="agent-info"></div>
+  </div>
+  <div class="footer">Created by BetterOneYT</div>  <script>
+    const agentData = {
+      jett: {
+        callouts: `Entry from A Hall with dash.
+Alternative 1: Mid Nest to B connector flank.
+Alternative 2: B Main double updraft peek.`,
+        lineups: `Smoke A Tunnel and dash through.
+Alternative 1: Updraft peek A Nest.
+Alternative 2: Cloudburst cover B Alley push.`,
+        rotations: `Fast rotate via spawn.
+Alternative 1: Lurk Mid Nest.
+Alternative 2: Hold flanks aggressively.`
+      },
+      sage: {
+        callouts: `Wall B Alley to block push.
+Alternative 1: Heal entry fraggers at A Nest.
+Alternative 2: Slow Orb A Tunnel.`,
+        lineups: `Slow Orb B Main during push.
+Alternative 1: Wall plant spot A site.
+Alternative 2: Pre-place orb in A Hall.`,
+        rotations: `Anchor B, rotate after plant.
+Alternative 1: Quick rotate mid.
+Alternative 2: Play for retake from Spawn.`
+      },
+      brimstone: {
+        callouts: `Smoke A Tunnel, A Nest.
+Alternative 1: Molly default plant A.
+Alternative 2: Orbital Strike post-plant.`,
+        lineups: `Molly A site default from safe spot.
+Alternative 1: Use stim on B Main entry.
+Alternative 2: Post-plant from B Cubby.`,
+        rotations: `Support Mid with smokes.
+Alternative 1: Lurk A Tunnel.
+Alternative 2: Post-plant utility.`
+      },
+      killjoy: {
+        callouts: `Turret B Main for early info.
+Alternative 1: Alarm Bot A Nest.
+Alternative 2: Nanoswarm under A default.`,
+        lineups: `Nanoswarm default plant.
+Alternative 1: Safe turret A Cubby.
+Alternative 2: B Main Lockdown post-plant.`,
+        rotations: `Anchor A or B.
+Alternative 1: Play passive for retake.
+Alternative 2: Trap mid on rotate.`
+      },
+      omen: {
+        callouts: `TP to A Nest for flank.
+Alternative 1: Smoke A Hall & push.
+Alternative 2: Paranoia Mid Nest for team.`,
+        lineups: `One-way A Tunnel from Site.
+Alternative 1: TP fake to B Main.
+Alternative 2: Long TP to Nest for retake.`,
+        rotations: `Shadow Step to rotate fast.
+Alternative 1: Flank from Mid Nest.
+Alternative 2: Support smokes from Spawn.`
+      },
+      viper: {
+        callouts: `Wall from A Hall to site.
+Alternative 1: Smoke orb on plant.
+Alternative 2: Toxic Screen Mid push.`,
+        lineups: `Snakebite default from A Nest.
+Alternative 1: B Alley post-plant molly.
+Alternative 2: Site deny from Cubby.`,
+        rotations: `Lurk with orb setup.
+Alternative 1: Use wall to fake rotate.
+Alternative 2: Play post-plant from Mid.`
+      },
+      sova: {
+        callouts: `Recon A Nest to check stack.
+Alternative 1: Dart B Main from Alley.
+Alternative 2: Shock Dart Mid Connector.`,
+        lineups: `Shock Dart B site from Spawn.
+Alternative 1: Recon A default from Nest.
+Alternative 2: Double dart post-plant.`,
+        rotations: `Scout mid and rotate.
+Alternative 1: Play retake from Spawn.
+Alternative 2: Rotate fast through Hall.`
+      },
+      skye: {
+        callouts: `Flash A Hall entry.
+Alternative 1: Dog through Mid Nest.
+Alternative 2: Heal teammates A Nest.`,
+        lineups: `Flash B Alley and push.
+Alternative 1: Dog A Tunnel to clear.
+Alternative 2: Post-plant hold from Cubby.`,
+        rotations: `Support both sites.
+Alternative 1: Fast dog flank.
+Alternative 2: Trailblazer check mid.`
+      },
+      fade: {
+        callouts: `Haunt A Nest to reveal.
+Alternative 1: Prowler A Hall entry.
+Alternative 2: Haunt Mid Nest.`,
+        lineups: `Haunt on B Main box.
+Alternative 1: Seize default A plant.
+Alternative 2: Combo Prowler with push.`,
+        rotations: `Lurk with sound bait.
+Alternative 1: Clear with Prowler.
+Alternative 2: Fast rotate from Nest.`
+      },
+      yoru: {
+        callouts: `Fakeout at A Tunnel to bait rotate.
+Alternative 1: Gatecrash to B Main behind enemy lines.
+Alternative 2: Use flash around A Nest for fast entry.`,
+        lineups: `Clone push through A Hall, then TP.
+Alternative 1: TP into Mid Nest.
+Alternative 2: Post-plant TP to Backsite B.`,
+        rotations: `Lurk mid and TP between A and B.
+Alternative 1: Anchor B with TP escape.
+Alternative 2: Aggressive flank after Gatecrash behind enemy.`
+      },
+      breach: {
+        callouts: `Flash A Hall before team entry.
+Alternative 1: Faultline B Alley for early control.
+Alternative 2: Aftershock A Nest during retake.`,
+        lineups: `Aftershock default A plant from A Cubby.
+Alternative 1: Flash Mid Nest for mid push.
+Alternative 2: Use Faultline during B plant denial.`,
+        rotations: `Hold Mid and support either site with utility.
+Alternative 1: Quick rotate through Defender Spawn.
+Alternative 2: Set up retake utility ahead of time.`
+      }
+    };
+
+    const agentSelect = document.getElementById("agent-select");
+    const agentDetails = document.getElementById("agent-details");
+
+    agentSelect.addEventListener("change", () => {
+      const agent = agentSelect.value;
+      if (agent === "select") {
+        agentDetails.innerHTML = "";
+        return;
+      }
+      const data = agentData[agent];
+      if (!data) {
+        agentDetails.innerHTML = "Strategy not yet added for this agent.";
+        return;
+      }
+      agentDetails.innerHTML = `
+        <h2>${agent.charAt(0).toUpperCase() + agent.slice(1)}</h2>
+        <p><strong>Callouts & Plays:</strong><br>${data.callouts.replaceAll('\n', '<br>')}</p>
+        <p><strong>Lineups:</strong><br>${data.lineups.replaceAll('\n', '<br>')}</p>
+        <p><strong>Rotation Strategy:</strong><br>${data.rotations.replaceAll('\n', '<br>')}</p>
+        <iframe width="100%" height="315" src="https://www.youtube.com/embed?listType=search&list=valorant+${agent}+corrode+lineups" frameborder="0" allowfullscreen></iframe>
+      `;
+    });
+  </script></body>
+</html>
